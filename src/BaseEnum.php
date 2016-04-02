@@ -1,6 +1,6 @@
 <?php
 
-namespace "WBoyz\LaravelEnum";
+namespace WBoyz\LaravelEnum;
 
 use ReflectionClass;
 
