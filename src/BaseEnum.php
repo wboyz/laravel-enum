@@ -7,6 +7,19 @@ use ReflectionClass;
 abstract class BaseEnum
 {
     /**
+     * Returns an enum value by its key.
+     *
+     * @return mixed
+     */
+    public static function getValue($key)
+    {
+        $className = get_called_class();
+        $reflectionClass = new ReflectionClass($className);
+
+        return $reflectionClass->getConstant($key);
+    }
+
+    /**
      * Returns the enum values.
      *
      * @return array
@@ -38,4 +51,5 @@ abstract class BaseEnum
 
         return $reflectionClass->getConstants();
     }
+
 }
