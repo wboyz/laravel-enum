@@ -6,6 +6,8 @@ use ReflectionClass;
 
 abstract class BaseEnum
 {
+    const DEFAULT_VALUE = 0;
+
     /**
      * Returns an enum value by its key.
      *
@@ -15,6 +17,10 @@ abstract class BaseEnum
     {
         $className = get_called_class();
         $reflectionClass = new ReflectionClass($className);
+
+        if (! $reflectionClass->hasConstant($key)) {
+            return static::DEFAULT_VALUE;
+        }
 
         return $reflectionClass->getConstant($key);
     }
