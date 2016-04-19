@@ -1,7 +1,7 @@
 {
     "name": "wboyz/laravel-enum",
     "description": "Base enum class with some features.",
-    "version": "v0.1.1",
+    "version": "v0.2.0",
     "type": "helper",
     "license": "MIT",
     "keywords": ["laravel", "enum"],
