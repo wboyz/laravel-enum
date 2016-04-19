@@ -54,8 +54,11 @@ abstract class BaseEnum
     {
         $className = get_called_class();
         $reflectionClass = new ReflectionClass($className);
+        $dictionary = $reflectionClass->getConstants();
+        
+        unset($dictionary['DEFAULT_VALUE']);
 
-        return $reflectionClass->getConstants();
+        return $dictionary;
     }
 
     /**

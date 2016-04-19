@@ -1,7 +1,5 @@
 <?php
 
-require_once '../src/BaseEnum.php';
-
 class Fruits extends \WBoyz\LaravelEnum\BaseEnum
 {
     const PEACH = 2;
