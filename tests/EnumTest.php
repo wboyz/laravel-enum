@@ -38,7 +38,7 @@ class EnumTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function it_has_not_a_specific_key()
+    public function it_does_not_have_a_specific_key()
     {
         $value = Fruits::hasKey('APPLE');
         $this->assertEquals(false, $value);
@@ -56,9 +56,19 @@ class EnumTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function it_has_not_a_specific_value()
+    public function it_does_not_have_a_specific_value()
     {
         $value = Fruits::hasValue('nothing');
         $this->assertEquals(false, $value);
+    }
+
+    /**
+     * @test
+     */
+    public function it_does_not_have_a_default_value_in_its_dictionary()
+    {
+        $dictionary = Fruits::toDictionary();
+        $result = array_key_exists('DEFAULT_VALUE', $dictionary);
+        $this->assertFalse($result);
     }
 }
