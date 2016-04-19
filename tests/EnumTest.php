@@ -1,5 +1,7 @@
 <?php
 
+require_once '../src/BaseEnum.php';
+
 class Fruits extends \WBoyz\LaravelEnum\BaseEnum
 {
     const PEACH = 2;
@@ -24,5 +26,41 @@ class EnumTest extends PHPUnit_Framework_TestCase
     {
         $value = Fruits::getValue('PEACH');
         $this->assertEquals(2, $value);
+    }
+
+    /**
+     * @test
+     */
+    public function it_has_a_specific_key()
+    {
+        $value = Fruits::hasKey('PEACH');
+        $this->assertEquals(true, $value);
+    }
+
+    /**
+     * @test
+     */
+    public function it_has_not_a_specific_key()
+    {
+        $value = Fruits::hasKey('APPLE');
+        $this->assertEquals(false, $value);
+    }
+
+    /**
+     * @test
+     */
+    public function it_has_a_specific_value()
+    {
+        $value = Fruits::hasValue(2);
+        $this->assertEquals(true, $value);
+    }
+
+    /**
+     * @test
+     */
+    public function it_has_not_a_specific_value()
+    {
+        $value = Fruits::hasValue('nothing');
+        $this->assertEquals(false, $value);
     }
 }
