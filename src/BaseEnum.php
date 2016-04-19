@@ -58,4 +58,28 @@ abstract class BaseEnum
         return $reflectionClass->getConstants();
     }
 
+    /**
+     * Checks if a value exists in constant values.
+     *
+     * @param mixed $value
+     *
+     * @return bool
+     */
+    public static function hasValue($value)
+    {
+        return in_array($value, static::getValues(), true);
+    }
+
+    /**
+     * Checks if a key exists in constant names.
+     *
+     * @param string $key
+     *
+     * @return bool
+     */
+    public static function hasKey($key)
+    {
+        return in_array($key, static::getKeys());
+    }
+
 }
